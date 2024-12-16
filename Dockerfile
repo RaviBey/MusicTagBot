@@ -1,3 +1,4 @@
+
 FROM nikolaik/python-nodejs:python3.9-nodejs18
 
 RUN apt-get update -y && apt-get upgrade -y \
@@ -7,6 +8,9 @@ RUN apt-get update -y && apt-get upgrade -y \
 
 COPY . /app/
 WORKDIR /app/
+
+# Expose a TCP port
+EXPOSE 8080
 
 RUN pip3 install --no-cache-dir --upgrade --requirement requirements.txt
 
